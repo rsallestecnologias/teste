@@ -1,0 +1,80 @@
+<div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
+
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>Controle de Pessoas</mat-card-title>
+            <mat-card-subtitle>Listagem</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="20px">
+
+                <div fxFlex="10%">
+                    <b>ID</b>
+                </div>
+                <div fxFlex="30%">
+                    <b>Nome</b>
+                </div>
+                <div fxFlex="20%">
+                    <b>R.G.</b>
+                </div>
+                <div fxFlex="20%">
+                    <b>C.P.F.</b>
+                </div>
+                <div fxFlex="20%">
+                    <b>Ação</b>
+                </div>
+
+            </div>
+
+            <mat-divider></mat-divider>
+
+            <div *ngFor="let pessoa of pessoas">
+
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+
+                    <div fxFlex="10%">
+                        {{ pessoa.idPessoa }}
+                    </div>
+                    <div fxFlex="30%">
+                        {{ pessoa.nome }}
+                    </div>
+                    <div fxFlex="20%">
+                        {{ pessoa.rg }}
+                    </div>
+                    <div fxFlex="20%">
+                        {{ pessoa.cpf }}
+                    </div>
+                    <div fxFlex="20%">
+                        <button mat-raised-button color="primary" (click)="editarPessoa( pessoa )">Editar</button>
+                        <button mat-raised-button color="warn"
+                            (click)="deletarPessoa( pessoa.idPessoa )">Excluir</button>
+                    </div>
+
+                </div>
+
+                <mat-divider></mat-divider>
+
+            </div>
+
+        </mat-card-content>
+        <mat-card-actions>
+            <div fxLayout="column" fxFlex="50%" fxLayoutAlign="center start" fxLayoutGap="20px">
+                <button mat-raised-button color="accent" (click)="novaPessoa()">Nova Pessoa</button>
+            </div>
+            <div fxLayout="column" fxFlex="50%" fxLayoutAlign="center end" fxLayoutGap="20px">
+                <form class="example-form" [formGroup]="frmPesquisa">
+
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Pesquisar" id="pesquisar" formControlName="nomecpf" >                        
+                    </mat-form-field>
+                    <button mat-raised-button color="accent" (click)="listarPessoasNomeCpf()">
+                            <mat-icon matSuffix>search</mat-icon>
+                    </button>
+
+                </form>
+            </div>
+        </mat-card-actions>
+    </mat-card>
+
+</div>

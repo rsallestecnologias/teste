@@ -1,0 +1,72 @@
+<div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
+
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>Controle de Pessoas - {{ localId }}</mat-card-title>
+            <mat-card-subtitle>Formulario</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+
+            <form [formGroup]="frmPessoa">
+
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+                    <mat-form-field fxFlex="50%">
+                        <input matInput placeholder="Nome *" formControlName="nome" autofocus
+                            style="text-transform: uppercase">
+                    </mat-form-field>
+                    <mat-form-field fxFlex="25%">
+                        <input matInput placeholder="R.G." formControlName="rg" style="text-transform: uppercase">
+                    </mat-form-field>
+                    <mat-form-field fxFlex="25%">
+                        <input matInput placeholder="C.P.F." formControlName="cpf" style="text-transform: uppercase">
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+                    <mat-form-field fxFlex="15%">
+                        <input matInput placeholder="C.E.P." formControlName="cep" style="text-transform: uppercase">
+                    </mat-form-field>
+                    <mat-form-field fxFlex="35%">
+                        <input matInput placeholder="Logradouro" formControlName="logradouro"
+                            style="text-transform: uppercase">
+                    </mat-form-field>
+                    <mat-form-field fxFlex="15%">
+                        <input matInput placeholder="Numero" formControlName="numero" style="text-transform: uppercase">
+                    </mat-form-field>
+                    <mat-form-field fxFlex="35%">
+                        <input matInput placeholder="Complemento" formControlName="complemento"
+                            style="text-transform: uppercase">
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+                    <mat-form-field fxFlex="40%">
+                        <input matInput placeholder="Bairro" formControlName="bairro" style="text-transform: uppercase">
+                    </mat-form-field>
+                    <mat-form-field fxFlex="40%">
+                        <input matInput placeholder="Cidade" formControlName="cidade" style="text-transform: uppercase">
+                    </mat-form-field>
+                    <mat-form-field fxFlex="20%">
+                        <input matInput placeholder="Estado" formControlName="estado" style="text-transform: uppercase">
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+                    <mat-form-field fxFlex="30%">
+                        <input matInput placeholder="Telefone" formControlName="telefone" style="text-transform: uppercase">
+                    </mat-form-field>
+                    <mat-form-field fxFlex="40%">
+                        <input matInput placeholder="E-Mail" formControlName="email" style="text-transform: lauwercase">
+                    </mat-form-field>
+                    <mat-form-field fxFlex="30%">
+                        <input matInput placeholder="Ultima Alteração" formControlName="dataUltimaAlteracao">
+                    </mat-form-field>
+                </div>
+
+            </form>
+
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="accent" (click)="voltar()">Voltar</button>
+            <button mat-raised-button color="primary" (click)="salvarPessoa()" [disabled]="!isEdited">Salvar</button>            
+        </mat-card-actions>
+    </mat-card>
+
+</div>
